@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D49680F820AF7969007B64F0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D49680F720AF7969007B64F0 /* main.cpp */; };
+		D4E720B220B02BAA003DDA08 /* cscreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4E720B120B02BAA003DDA08 /* cscreen.cpp */; };
+		D4E720B420B02BCC003DDA08 /* example1_1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4E720B320B02BCC003DDA08 /* example1_1.cpp */; };
+		D4E720B620B02BEC003DDA08 /* example1_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4E720B520B02BEC003DDA08 /* example1_2.cpp */; };
+		D4E720B820B02C03003DDA08 /* example2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4E720B720B02C03003DDA08 /* example2.cpp */; };
+		D4E720BA20B02C1F003DDA08 /* screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4E720B920B02C1F003DDA08 /* screen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,14 @@
 /* Begin PBXFileReference section */
 		D49680F420AF7969007B64F0 /* Drawing on the Terminal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Drawing on the Terminal"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49680F720AF7969007B64F0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D49680FF20AF79C1007B64F0 /* cscreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cscreen.h; sourceTree = "<group>"; };
+		D496810020AF79D2007B64F0 /* screen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = screen.h; sourceTree = "<group>"; };
+		D4E720B120B02BAA003DDA08 /* cscreen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = cscreen.cpp; sourceTree = "<group>"; };
+		D4E720B320B02BCC003DDA08 /* example1_1.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example1_1.cpp; sourceTree = "<group>"; };
+		D4E720B520B02BEC003DDA08 /* example1_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example1_2.cpp; sourceTree = "<group>"; };
+		D4E720B720B02C03003DDA08 /* example2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = example2.cpp; sourceTree = "<group>"; };
+		D4E720B920B02C1F003DDA08 /* screen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = screen.cpp; sourceTree = "<group>"; };
+		D4E720BB20B02C6D003DDA08 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +58,7 @@
 				D49680F520AF7969007B64F0 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		D49680F520AF7969007B64F0 /* Products */ = {
 			isa = PBXGroup;
@@ -57,9 +71,57 @@
 		D49680F620AF7969007B64F0 /* Drawing on the Terminal */ = {
 			isa = PBXGroup;
 			children = (
+				D496810120AF7A1E007B64F0 /* bin */,
+				D49680FE20AF799C007B64F0 /* include */,
+				D496810220AF7A27007B64F0 /* obj */,
+				D496810320AF7A2E007B64F0 /* src */,
 				D49680F720AF7969007B64F0 /* main.cpp */,
+				D496810420AF7A5E007B64F0 /* tests */,
+				D4E720BB20B02C6D003DDA08 /* README */,
 			);
 			path = "Drawing on the Terminal";
+			sourceTree = "<group>";
+		};
+		D49680FE20AF799C007B64F0 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				D49680FF20AF79C1007B64F0 /* cscreen.h */,
+				D496810020AF79D2007B64F0 /* screen.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		D496810120AF7A1E007B64F0 /* bin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = bin;
+			sourceTree = "<group>";
+		};
+		D496810220AF7A27007B64F0 /* obj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = obj;
+			sourceTree = "<group>";
+		};
+		D496810320AF7A2E007B64F0 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D4E720B120B02BAA003DDA08 /* cscreen.cpp */,
+				D4E720B920B02C1F003DDA08 /* screen.cpp */,
+				D4E720B320B02BCC003DDA08 /* example1_1.cpp */,
+				D4E720B520B02BEC003DDA08 /* example1_2.cpp */,
+				D4E720B720B02C03003DDA08 /* example2.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		D496810420AF7A5E007B64F0 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +181,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D49680F820AF7969007B64F0 /* main.cpp in Sources */,
+				D4E720BA20B02C1F003DDA08 /* screen.cpp in Sources */,
+				D4E720B820B02C03003DDA08 /* example2.cpp in Sources */,
+				D4E720B620B02BEC003DDA08 /* example1_2.cpp in Sources */,
+				D4E720B220B02BAA003DDA08 /* cscreen.cpp in Sources */,
+				D4E720B420B02BCC003DDA08 /* example1_1.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,16 +304,22 @@
 		D49680FC20AF7969007B64F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36T3URCKU2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		D49680FD20AF7969007B64F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 36T3URCKU2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
