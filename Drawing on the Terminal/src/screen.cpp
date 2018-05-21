@@ -27,7 +27,7 @@ Screen::set_line(int x0, int y0, int x1, int y1, const Point& pt)
     if (coords_invalid(y0, x0) || coords_invalid(y1, x1))
         return;
     
-//    (expression) ? true : false;
+    //    (expression) ? true : false;
     
     if (y0 == y1) {
         int min = (x0<x1) ? x0 : x1;
@@ -41,19 +41,23 @@ Screen::set_line(int x0, int y0, int x1, int y1, const Point& pt)
         for (int y=min; y<=max; ++y)
             set_point(x0, y, pt);
         
-        
-//        if (y0<y1) {
-//            for (int y=y0; y<=y1; ++y)
-//                set_point(x0, y, pt);
-//        }
-//        else {
-//            for (int y=y0; y<=y1; --y)
-//                set_point(x0, y, pt);
-//        }
     }
     else if (abs((x1-x0))==abs((y1-y0))) { // fix
-//        for (int x=x0, y=y0; x<=x1; ++x, ++y)
-//            set_point(x, y, pt);
+        
+        int y_min = (y0<y1) ? y0 : y1;
+        int x_of_min = (y_min==y0) ? x0 : x1;
+        
+        int y_max = (y_min==y0) ? y1 : y0;
+        int x_of_max = (y_max==y0) ? x0 : x1;
+        
+        if (x_of_min < x_of_max) {
+            for (int x=x_of_min, y=y_min; y<=y_max; ++x, ++y)
+                set_point(x, y, pt);
+        }
+        else {
+            for (int x=x_of_min, y=y_min; y<=y_max; --x, ++y)
+                set_point(x, y, pt);
+        }
     }
     else {
         try {
@@ -62,10 +66,12 @@ Screen::set_line(int x0, int y0, int x1, int y1, const Point& pt)
         catch(int e) {
             cout << "line not valid" << endl;
             cout << "\tx0=" << x0 << ", y0=" << y0 << ", x1=" <<  x1 << ", y1=" <<  y1 << endl;
+            set_point(x0, y0, Point('X', 30, 37, true));
+            set_point(x1, y1, Point('X', 30, 37, true));
         }
-
+        
     }
-   
+    
 }
 
 void
@@ -111,12 +117,12 @@ Screen::render()
         if (buffer[i].bright)
             fg_color += 60;
         
-//        cout << "\033[" << buffer[i].bright << ";" << buffer[i].color_code << ";" << buffer[i].bg_color_code << "m" << buffer[i].ch;
+        //        cout << "\033[" << buffer[i].bright << ";" << buffer[i].color_code << ";" << buffer[i].bg_color_code << "m" << buffer[i].ch;
         cout << "\033[" << fg_color << "m\033[" << buffer[i].bg_color_code << "m" << buffer[i].ch;
         
     }
     
-//    cout << "\033[0m" << endl;
+    //    cout << "\033[0m" << endl;
     cout << /*"\033[0m" << */ endl;
 }
 
@@ -125,13 +131,10 @@ Screen::~Screen()
     //TODO: DONE
     int size = get_nrows()*get_ncols();
     for (int i=0; i <size; ++i) {
-//        cout << "destructing " << i << endl;
-
         buffer[i].~Point();
-
     }
-  
-//    delete[]  this->buffer;
+    
+    //    delete[]  this->buffer;
 }
 
 void
