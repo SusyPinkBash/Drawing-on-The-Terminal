@@ -63,14 +63,7 @@ Screen::set_line(int x0, int y0, int x1, int y1, const Point& pt)
             cout << "line not valid" << endl;
             cout << "\tx0=" << x0 << ", y0=" << y0 << ", x1=" <<  x1 << ", y1=" <<  y1 << endl;
         }
-        
-//        try {
-//            throw 1;
-//        }
-//            catch (1) {
-//            cout << "error on call x0=" << x0 << ", y0=" << y0 << " , x1=" <<  x1 << " , y1=" <<  y1 << endl;
-//        }
-//        cout << "error on call x0=" << x0 << ", y0=" << y0 << " , x1=" <<  x1 << " , y1=" <<  y1 << endl;
+
     }
    
 }
@@ -109,15 +102,22 @@ Screen::render()
     //TODO : DONE
     
     int size = get_nrows()*get_ncols();
-
     for (int i=0; i<size; ++i) {
-        if (i % get_ncols() == 0)
-            cout << endl;
-        cout << "\033[" << buffer[i].bright << ";" << buffer[i].color_code << ";" << buffer[i].bg_color_code << "m" << buffer[i].ch;
+        if ((i!=0) && (i % get_ncols() == 0))
+            cout << /*"\033[0m" << */ endl;
+        
+        
+        int fg_color = buffer[i].color_code;
+        if (buffer[i].bright)
+            fg_color += 60;
+        
+//        cout << "\033[" << buffer[i].bright << ";" << buffer[i].color_code << ";" << buffer[i].bg_color_code << "m" << buffer[i].ch;
+        cout << "\033[" << fg_color << "m\033[" << buffer[i].bg_color_code << "m" << buffer[i].ch;
+        
     }
     
-    cout << "\033[0m" << endl;
- 
+//    cout << "\033[0m" << endl;
+    cout << /*"\033[0m" << */ endl;
 }
 
 Screen::~Screen()
