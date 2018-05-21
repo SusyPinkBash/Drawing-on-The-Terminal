@@ -32,15 +32,8 @@ int main(int argc, const char * argv[]) {
     
     screen.set_line(27, 21, 33, 21, ptcyan);
     screen.set_line(25, 19, 26, 20, ptcyan);
-//    screen.set_line(33, 21, 35, 20, ptcyan);
     screen.set_line(34, 20, 35, 19, ptcyan);
     
-    
-    
-//    screen.set_line(25, 19, 26, 20, ptcyan);
-//    screen.set_line(34, 21, 35, 19, ptcyan);
-//    screen.set_line(33, 21, 35, 20, ptcyan);
-//    screen.set_line(34, 21, 35, 19, ptcyan);
     
     screen.render();
     

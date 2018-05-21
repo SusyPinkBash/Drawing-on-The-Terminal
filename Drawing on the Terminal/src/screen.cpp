@@ -122,8 +122,8 @@ Screen::render()
         
     }
     
-    //    cout << "\033[0m" << endl;
-    cout << /*"\033[0m" << */ endl;
+    cout << "\033[0m" << endl;
+    //    cout << /*"\033[0m" << */ endl;
 }
 
 Screen::~Screen()
@@ -144,8 +144,8 @@ Screen::init()
     this->update_size();
     /*debug*/
     if (this->get_ncols()==0 && this->get_nrows()==-1) {
-        this->ncols = 80;
-        this->nrows = 23;
+        this->ncols = 32;
+        this->nrows = 32;
     }
     int size = get_ncols()*get_nrows();
     this->buffer = new Point [size];
