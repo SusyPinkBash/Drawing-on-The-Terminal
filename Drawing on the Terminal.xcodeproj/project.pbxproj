@@ -75,7 +75,6 @@
 				D49680FE20AF799C007B64F0 /* include */,
 				D496810220AF7A27007B64F0 /* obj */,
 				D496810320AF7A2E007B64F0 /* src */,
-				D49680F720AF7969007B64F0 /* main.cpp */,
 				D496810420AF7A5E007B64F0 /* tests */,
 				D4E720BB20B02C6D003DDA08 /* README */,
 			);
@@ -110,6 +109,7 @@
 			children = (
 				D4E720B120B02BAA003DDA08 /* cscreen.cpp */,
 				D4E720B920B02C1F003DDA08 /* screen.cpp */,
+				D49680F720AF7969007B64F0 /* main.cpp */,
 				D4E720B320B02BCC003DDA08 /* example1_1.cpp */,
 				D4E720B520B02BEC003DDA08 /* example1_2.cpp */,
 				D4E720B720B02C03003DDA08 /* example2.cpp */,
@@ -134,6 +134,7 @@
 				D49680F020AF7969007B64F0 /* Sources */,
 				D49680F120AF7969007B64F0 /* Frameworks */,
 				D49680F220AF7969007B64F0 /* CopyFiles */,
+				D4B36C9B20B1A7FF007CC6AD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -174,6 +175,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D4B36C9B20B1A7FF007CC6AD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D49680F020AF7969007B64F0 /* Sources */ = {

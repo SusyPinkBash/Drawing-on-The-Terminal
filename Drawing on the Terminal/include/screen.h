@@ -20,8 +20,8 @@ namespace scr {
     {
     public:
         char ch;
-        byte color_code;
-        byte bg_color_code;
+        int color_code;
+        int bg_color_code;
         bool bright;
         
         static const int default_color = 37;
@@ -32,19 +32,37 @@ namespace scr {
         , color_code(default_color)
         , bg_color_code(default_color_bg)
         , bright(true)
-        {}
+        {
+//            cout << "called point empty constructor" << endl;
+        }
         Point(char ch, byte color_code)
         : ch(ch)
         , color_code(color_code)
         , bg_color_code(default_color_bg)
         , bright(true)
-        {}
+        {
+//            cout << "called point 2 par constructor" << endl;
+        }
         Point(char ch, byte color_code, byte bg_color_code, bool bright)
         : ch(ch)
         , color_code(color_code)
         , bg_color_code(bg_color_code)
         , bright(bright)
-        {}
+        {
+//            cout << "called point 4 par constructor" << endl;
+        }
+        // Added Copy constructor
+        Point(Point & p)
+        : ch(p.ch)
+        , color_code(p.color_code)
+        , bg_color_code(p.bg_color_code)
+        , bright(p.bright)
+        {
+//            cout << "called point full constructor" << endl;
+        };
+        ~Point() {
+//            cout << "called point destructor" << endl;
+        };
     };
     
     class Screen

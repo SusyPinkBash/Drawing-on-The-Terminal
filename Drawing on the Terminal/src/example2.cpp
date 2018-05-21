@@ -5,7 +5,7 @@
 
 using namespace scr;
 using std::vector;
-
+/*
 int main() {
     Screen screen;
     Canvas canv(screen);
@@ -56,4 +56,5 @@ int main() {
     // TODO Clean the memory
     
     return 0;
-}
+} */
+ 

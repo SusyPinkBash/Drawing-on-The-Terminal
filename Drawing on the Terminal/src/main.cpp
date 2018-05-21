@@ -1,10 +1,15 @@
-#include "screen.h"
-#include <iostream>
+//
+//  main.cpp
+//  Drawing on the Terminal
+//
+//  Created by Susanna Ardigo' on 18.05.18.
+//  Copyright © 2018 Susanna Ardigo'. All rights reserved.
+//
 
-/*
-int
-main()
-{
+#include <iostream>
+#include "screen.h"
+
+int main(int argc, const char * argv[]) {
     using namespace scr;
     
     Screen screen;
@@ -23,13 +28,21 @@ main()
     screen.set_circle(35, 12, 2, ptred2);
     screen.set_circle(25, 12, 0, ptred2);
     screen.set_circle(35, 12, 0, ptred2);
+
     
     screen.set_line(27, 21, 33, 21, ptcyan);
     screen.set_line(25, 19, 26, 20, ptcyan);
     screen.set_line(33, 21, 35, 20, ptcyan);
     
+    
+    
+    
+//    screen.set_line(25, 19, 26, 20, ptcyan);
+//    screen.set_line(34, 21, 35, 19, ptcyan);
+//    screen.set_line(33, 21, 35, 20, ptcyan);
+//    screen.set_line(34, 21, 35, 19, ptcyan);
+    
     screen.render();
     
     return 0;
 }
- */

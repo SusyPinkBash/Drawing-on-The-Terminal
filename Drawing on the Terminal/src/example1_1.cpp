@@ -1,6 +1,6 @@
 #include "screen.h"
 #include <iostream>
-
+/*
 int
 main()
 {
@@ -21,3 +21,4 @@ main()
     
     return 0;
 }
+ */
