@@ -24,25 +24,38 @@ void
 Screen::set_line(int x0, int y0, int x1, int y1, const Point& pt)
 {
     // TODO : DONE
-    if (coords_invalid(y0, x0) || coords_invalid(y1, x1))
+    //    if (coords_invalid(y0, x0) || coords_invalid(y1, x1))
+    //        return;
+    if (x0<0 || y0<0 || x1<0 || y1<0)
         return;
+    int rows = get_nrows();
+    int cols = get_ncols();
     
-    //    (expression) ? true : false;
     
     if (y0 == y1) {
+        if (y0 > rows)
+            return;
+        
         int min = (x0<x1) ? x0 : x1;
         int max = (min==x0) ? x1 : x0;
+        max = (max>cols) ? cols : max;
+        
         for (int x=min; x<=max; ++x)
             set_point(x, y0, pt);
     }
     else if (x0 == x1) {
+        if (x0 > cols)
+            return;
+        
         int min = (y0<y1) ? y0 : y1;
         int max = (min==y0) ? y1 : y0;
+        max = (max>rows) ? rows : max;
+        
         for (int y=min; y<=max; ++y)
             set_point(x0, y, pt);
         
     }
-    else if (abs((x1-x0))==abs((y1-y0))) { // fix
+    else if (abs(x1-x0)==abs(y1-y0)) {
         
         int y_min = (y0<y1) ? y0 : y1;
         int x_of_min = (y_min==y0) ? x0 : x1;
@@ -51,11 +64,12 @@ Screen::set_line(int x0, int y0, int x1, int y1, const Point& pt)
         int x_of_max = (y_max==y0) ? x0 : x1;
         
         if (x_of_min < x_of_max) {
-            for (int x=x_of_min, y=y_min; y<=y_max; ++x, ++y)
+            
+            for (int x=x_of_min, y=y_min; x<=x_of_max && y<=y_max; ++x, ++y)
                 set_point(x, y, pt);
         }
         else {
-            for (int x=x_of_min, y=y_min; y<=y_max; --x, ++y)
+            for (int x=x_of_min, y=y_min; x<=x_of_min && y<=y_max; --x, ++y)
                 set_point(x, y, pt);
         }
     }
@@ -66,8 +80,8 @@ Screen::set_line(int x0, int y0, int x1, int y1, const Point& pt)
         catch(int e) {
             cout << "line not valid" << endl;
             cout << "\tx0=" << x0 << ", y0=" << y0 << ", x1=" <<  x1 << ", y1=" <<  y1 << endl;
-            set_point(x0, y0, Point('X', 30, 37, true));
-            set_point(x1, y1, Point('X', 30, 37, true));
+            //            set_point(x0, y0, Point('X', 30, 37, true));
+            //            set_point(x1, y1, Point('X', 30, 37, true));
         }
         
     }
@@ -118,7 +132,7 @@ Screen::render()
             fg_color += 60;
         
         //        cout << "\033[" << buffer[i].bright << ";" << buffer[i].color_code << ";" << buffer[i].bg_color_code << "m" << buffer[i].ch;
-        cout << "\033[" << fg_color << "m\033[" << buffer[i].bg_color_code << "m" << buffer[i].ch;
+        cout << "\033[" << (int) fg_color << "m\033[" << (int) buffer[i].bg_color_code << "m" << buffer[i].ch;
         
     }
     
@@ -144,8 +158,8 @@ Screen::init()
     this->update_size();
     /*debug*/
     if (this->get_ncols()==0 && this->get_nrows()==-1) {
-        this->ncols = 32;
-        this->nrows = 32;
+        this->ncols = 20;
+        this->nrows = 20;
     }
     int size = get_ncols()*get_nrows();
     this->buffer = new Point [size];
