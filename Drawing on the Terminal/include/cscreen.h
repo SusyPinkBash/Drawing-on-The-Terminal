@@ -2,8 +2,11 @@
 #define __CSCREEN_H__
 
 #include "screen.h"
+#include <vector>
 
 namespace scr {
+    using std::vector;
+    using std::pair;
     
     class Color {
         
@@ -34,12 +37,6 @@ namespace scr {
         , background_color(bg_color + 10)
         , ch(c)
         , bright(brightness)
-        {}
-        Pen(Pen & p)
-        : foreground_color(p.foreground_color)
-        , background_color(p.background_color)
-        , ch(p.ch)
-        , bright(p.bright)
         {}
         ~Pen()
         {}
@@ -86,6 +83,8 @@ namespace scr {
         Circle(int x, int y, int radius)
         : xc(x), yc(y), r(radius) {}
         
+        ~Circle() {}
+        
         int get_x() const {return xc; };
         int get_y() const {return yc; };
         int get_r() const {return r; };
@@ -114,6 +113,8 @@ namespace scr {
             }
         }
         
+        ~Line() {}
+        
         int get_x0 () const { return x0; }
         int get_y0 () const { return y0; }
         int get_x1 () const { return x1; }
@@ -126,11 +127,20 @@ namespace scr {
     
     class Canvas {
     private:
-        Screen screen;
+        Screen & screen;
+        vector<pair<Shape, Pen>> shapen;
+        
         
     public:
         Canvas (Screen & screen) : screen(screen) {}
+        
+        ~Canvas() {}
+        
+        void add(Shape * shape, Pen & pen) const;
+        void clear();
+        void show();
     };
+    
     
     
     

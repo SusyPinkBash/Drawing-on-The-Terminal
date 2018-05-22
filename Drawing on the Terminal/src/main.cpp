@@ -29,22 +29,22 @@ int main() {
     // List of pens
     vector<Pen> pens;
     pens.push_back(pen_red);
-//    pens.push_back(pen_green);
-//    pens.push_back(pen_blue);
-//    pens.push_back(pen_white);
-   /*
+    pens.push_back(pen_green);
+    pens.push_back(pen_blue);
+    pens.push_back(pen_white);
+   
     // Draw robot frame
     int width = (screen.get_ncols() - 2) / 2;
     int height = screen.get_nrows() - 2;
     for (int i = 1; i <= (screen.get_ncols() - 2) / 32; i++) {
-        Shape *addr = new Rectangle(i, i, width, height);
-        canv.add(addr, pens[i % pens.size()]);
+//        Shape *addr = new Rectangle(i, i, width, height);
+//        canv.add(addr, pens[i % pens.size()]);
         width -= 2;
         height -= 2;
         if (width <= 0 || height <= 0)
             break;
     }
-    
+    /*
     // Draw eyes
     for (int i = 0; i <= 1; ++i) {
         int x = 1 + 3 * (screen.get_ncols() - 2) / (18 - i*8);
